@@ -78,12 +78,28 @@
 			);
 			target = A96299962FD995C100BF6CD6 /* SkyCastWidgetExtension */;
 		};
+		A9629A3C2FD9A62700BF6CD6 /* Exceptions for "SkyCast" folder in "SkyCast" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/Network/MockURLProtocol.swift,
+			);
+			target = A96298C62FD7694700BF6CD6 /* SkyCast */;
+		};
+		A9629A3D2FD9A62700BF6CD6 /* Exceptions for "SkyCast" folder in "SkyCastTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/Network/MockURLProtocol.swift,
+			);
+			target = A96299832FD9919C00BF6CD6 /* SkyCastTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A96298C92FD7694700BF6CD6 /* SkyCast */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				A9629A3C2FD9A62700BF6CD6 /* Exceptions for "SkyCast" folder in "SkyCast" target */,
+				A9629A3D2FD9A62700BF6CD6 /* Exceptions for "SkyCast" folder in "SkyCastTests" target */,
 				A96299B42FD9989700BF6CD6 /* Exceptions for "SkyCast" folder in "SkyCastWidgetExtension" target */,
 			);
 			path = SkyCast;
