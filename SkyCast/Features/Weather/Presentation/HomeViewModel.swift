@@ -93,42 +93,24 @@ final class HomeViewModel {
         }
     }
 
+    private let appGroupDefaults = UserDefaults(suiteName: "group.com.donidevrs.skycast")
+    
     private func loadSavedCity() {
-        guard let data = UserDefaults.standard.data(forKey: "selected_city"),
+        guard let data = appGroupDefaults?.data(forKey: "selected_city"),
               let city = try? JSONDecoder().decode(SavedCity.self, from: data)
         else { return }
         selectedCity = city
     }
-
+    
     private func saveCity(_ city: SavedCity?) {
         guard let city = city,
               let data = try? JSONEncoder().encode(city)
         else {
-            UserDefaults.standard.removeObject(forKey: "selected_city")
+            appGroupDefaults?.removeObject(forKey: "selected_city")
             return
         }
-        UserDefaults.standard.set(data, forKey: "selected_city")
+        appGroupDefaults?.set(data, forKey: "selected_city")
     }
 }
 
-struct SavedCity: Codable, Identifiable, Equatable {
-    let id: UUID
-    let name: String
-    let country: String
-    let latitude: Double
-    let longitude: Double
-    
-    init(
-        id: UUID = UUID(),
-        name: String,
-        country: String,
-        latitude: Double,
-        longitude: Double
-    ) {
-        self.id = id
-        self.name = name
-        self.country = country
-        self.latitude = latitude
-        self.longitude = longitude
-    }
-}
+
