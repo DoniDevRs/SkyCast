@@ -1,6 +1,6 @@
 # SkyCast
 
-![CI](https://github.com/DoniDevRs/SkyCast/actions/workflows/ios.yml/badge.svg)
+![CI](https://github.com/DoniDevRs/SkyCast/actions/workflows/ci.yml/badge.svg)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange?logo=swift)
 ![iOS](https://img.shields.io/badge/iOS-17%2B-blue?logo=apple)
 ![Xcode](https://img.shields.io/badge/Xcode-16-blue?logo=xcode)
