@@ -21,28 +21,21 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
 
-      - name: List simulators
-        run: xcrun simctl list devices available
-
-      - name: Boot simulator
-        run: |
-          UDID=$(xcrun simctl list devices available | grep "iPhone 16 Pro" | head -1 | grep -E -o '[0-9A-F-]{36}')
-          echo "Using simulator: $UDID"
-          xcrun simctl boot $UDID
-          echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
-
       - name: Build
         run: |
           xcodebuild build \
             -scheme SkyCast \
-            -destination "id=$SIMULATOR_UDID" \
+            -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
+            -allowProvisioningUpdates \
             CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO
+            CODE_SIGNING_REQUIRED=NO \
+            IPHONEOS_DEPLOYMENT_TARGET=17.0
 
       - name: Run Tests
         run: |
           xcodebuild test \
             -scheme SkyCastTests \
-            -destination "id=$SIMULATOR_UDID" \
+            -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
             CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO
+            CODE_SIGNING_REQUIRED=NO \
+            IPHONEOS_DEPLOYMENT_TARGET=17.0
